@@ -46,6 +46,14 @@
   <button type="submit" id="submitBtn" disabled>Submit</button>
 
 </form>
+	<script>
+  const checkbox = document.getElementById("termsCheckbox");
+  const submitBtn = document.getElementById("submitBtn");
+
+  checkbox.addEventListener("change", function () {
+    submitBtn.disabled = !this.checked;
+  });
+</script>
     <script type="text/javascript" src="./script.js">
 </script>
 
