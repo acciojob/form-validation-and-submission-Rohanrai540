@@ -4,10 +4,57 @@
 
 <head>
 	<link rel="stylesheet" href="styles.css">
+	  <style>
+    form {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+  </style>
 </head>
 
 <body>
 	<!-- the entire body must be written by student -->
+	<form id="myForm" action="submit-form.php" method="POST">
+  
+  <input type="text" name="name" placeholder="Enter Name" required />
+  
+  <input type="email" name="email" placeholder="Enter Email" required />
+  
+  <input type="password" name="password" placeholder="Enter Password" required />
+
+  <label>
+    <input type="checkbox" id="termsCheckbox" />
+    I accept the terms and conditions
+  </label>
+
+  <button type="submit" id="submitBtn" disabled>Submit</button>
+</form>
+
+<script>
+  const checkbox = document.getElementById("termsCheckbox");
+  const submitBtn = document.getElementById("submitBtn");
+  const form = document.getElementById("myForm");
+
+  // Enable/Disable button based on checkbox
+  checkbox.addEventListener("change", function () {
+    submitBtn.disabled = !this.checked;
+  });
+
+  // Extra validation before submit
+  form.addEventListener("submit", function (e) {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      alert("Please fill all fields correctly!");
+    }
+  });
+</script>
     <script type="text/javascript" src="./script.js">
 </script>
 
